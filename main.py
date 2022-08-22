@@ -1,14 +1,14 @@
 height=float(input("Enter you height m "))
 weight=float(input("Enter you weight kg "))
-rezult=weight/height**2
-if rezult <=18.5: 
-  print ("UNDERWEIGHT")
-if rezult>18.5 and rezult <=25:
-  print ("normal weight")
-if rezult>25 and rezult<=30:
-  print ("over weight")
-if rezult>30 and rezult<=35:
-  print ("obese")
+bmi=round(weight/height**2)
+if bmi <18.5: 
+  print (f" {bmi} UNDERWEIGHT")
+if bmi>=18.5 and bmi <25:
+  print (f" {bmi} normal weight")
+if bmi>=25 and bmi<30:
+  print (f" {bmi} over weight")
+if bmi>=30 and bmi<35:
+  print (f" {bmi} obese")
 
-if rezult>35:
-  print ("clinicall obese")
+if bmi>=35:
+  print (f" {bmi} clinicall obese")
