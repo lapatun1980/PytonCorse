@@ -1,6 +1,5 @@
-age=int(input("enter you age "))
-left_age=90-age
-day=left_age*365
-weeks=left_age*52
-month=left_age*12
-print (f"you left {day} days, {weeks} weeks and {month} month")
+price=float(input("enter you price "))
+people=int(input("enter how many people "))
+percent_tip=int(input("Enter percent for tip "))
+to_pay=round (price*(1+percent_tip/100)/people, 2)
+print (f"each person should be pay {to_pay} d")
