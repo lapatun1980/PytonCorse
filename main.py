@@ -1,45 +1,23 @@
 import random
-rock0 = '''
-    _______
----'   ____)
-      (_____)
-      (_____)
-      (____)
----.__(___)
-'''
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
 
-paper1 = '''
-    _______
----'   ____)____
-          ______)
-          _______)
-         _______)
----.__________)
-'''
-
-scissors2 = '''
-    _______
----'   ____)____
-          ______)
-       __________)
-      (____)
----.__(___)
-'''
-you=int(input("Enter rock - 0  or paper - 1 or scissors - 2  "))
-if you==0: print(">>>Your choice - ROCK",rock0)
-elif you==1: print(">>>Your choice - PAPER",paper1)
-elif you==2: print (">>>Your choice - SCISSOR",scissors2)
-  # PC choice
-pc_choice=random.randint(0,2)
-if pc_choice==0: print(">>>pc_choice choice - ROCK",rock0)
-elif pc_choice==1: print(">>>pc_choice choice - PAPER",paper1)
-elif pc_choice==2: print (">>>pc_choice choice - SCISSOR",scissors2)
-  # Who are win
-if you>2 or you<0: print("wrong number") 
-elif you==pc_choice: print ("Drow")
-elif you==0 and pc_choice==1: print ("You losse")
-elif you==0 and pc_choice==2: print ("You WIN!!!")
-elif you==1 and pc_choice==0: print ("You WIN!!!")
-elif you==1 and pc_choice==2: print ("You losse")
-elif you==2 and pc_choice==0: print ("You WIN!!!")
-elif you==2 and pc_choice==1: print ("You losse")
+print("Welcome to the PyPassword Generator!")
+nr_letters= int(input("How many letters would you like in your password?\n")) 
+nr_symbols = int(input(f"How many symbols would you like?\n"))
+nr_numbers = int(input(f"How many numbers would you like?\n"))
+password=[]
+for i in range(0,nr_letters):
+  password+=random.choice(letters)
+for i in range(0,nr_numbers):
+  password+=random.choice(numbers)
+for i in range(0,nr_symbols):
+  password+=random.choice(symbols)
+# print(password)
+random.shuffle(password)
+# print(password)
+random_password=""
+for i in password:
+  random_password+=i
+print(random_password)
