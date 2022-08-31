@@ -1,23 +1,91 @@
 import random
-letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+words=['ball', 'apple', 'botle', 'woman', 'brad' ]
+word=random.choice(words)
+finde_word=[]
+for i in range(0,len(word)):
+    finde_word+="_"
+# print(finde_word)
+    people=0
+    last_latter=len(word)
+while (people<7 and last_latter!=0):
+    counter=0
+    latter=input("Enter letter")
+    for i in range(0, len(word)):
+        if latter==word[i]:
+            finde_word[i]=word[i]
+            counter+=1
+            last_latter-=1
+    if counter!=0:
+        print (finde_word)
+    else:
+        print("wronge")
+        people+=1
+        print(stages[7-people])
+win_word=""
+for i in range(0,len(word)):
+    win_word+=finde_word[i]
 
-print("Welcome to the PyPassword Generator!")
-nr_letters= int(input("How many letters would you like in your password?\n")) 
-nr_symbols = int(input(f"How many symbols would you like?\n"))
-nr_numbers = int(input(f"How many numbers would you like?\n"))
-password=[]
-for i in range(0,nr_letters):
-  password+=random.choice(letters)
-for i in range(0,nr_numbers):
-  password+=random.choice(numbers)
-for i in range(0,nr_symbols):
-  password+=random.choice(symbols)
-# print(password)
-random.shuffle(password)
-# print(password)
-random_password=""
-for i in password:
-  random_password+=i
-print(random_password)
+if people==7:
+    print("YOU LOSSE")
+else:
+    print ("YUO WIN!", win_word)
+  
+
+     
+    
