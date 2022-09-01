@@ -40,5 +40,5 @@ while (yes=="yes"):
     result=""
     for i in text_list:
         result+=i
-    print(result)   
-    yes=input("If you whant do repiat tape 'yes', if no 'no'").lower()
+    print("You got:",result)   
+    yes=input("If you want do repeat tape 'yes', if no 'no'").lower()
