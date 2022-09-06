@@ -1,44 +1,33 @@
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-yes="yes"
-#DECRIP---------------------------
-def encrypt(etext):
-   for j in range(len_text_list):
-     for i in range(26):
-        if text_list[j]==alphabet[i]:
-            if (i+shift)<26:
-                text_list[j]=alphabet[i+shift]
-                break
-            else:                          
-                text_list[j]=alphabet[i+shift-26]
-                break
-#ENCRIPT--------------------------------
-def decryption(text):
-   for j in range(len_text_list):
-     for i in range(26):
-        if text_list[j]==alphabet[i]:
-            if (i+shift)<26:
-                text_list[j]=alphabet[i-shift]
-                break
-            else:                          
-                text_list[j]=alphabet[i-shift-26]
-                break
-#end defs------
-    
-while (yes=="yes"):
-    direction=input("Type 'encode' for encoding or type 'dencode' for dencoding ")
+from alphavet import latters
+from art import logo
+
+def caesar (start_text, shift_amount, chiper_derection):
+    end_text=""
+    if chiper_derection=="decode":
+        shift_amount*=-1
+  
+    for char in start_text:
+        if char in latters:
+            position=latters.index(char)
+            new_position=position+shift_amount
+            end_text+=latters[new_position]
+        else:
+            end_text+=char
+    print(f"Here is {chiper_derection} result {end_text}" )
+
+print(logo)
+should_end=False
+while not should_end:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
-    
-    text_list=list(text)
-    len_text_list=len(text_list) 
-    
-    if direction=="encode":
-        encrypt(text)
-    else:
-        decryption(text)
-    # Printing result
-    result=""
-    for i in text_list:
-        result+=i
-    print("You got:",result)   
-    yes=input("If you want do repeat tape 'yes', if no 'no'").lower()
+    shift = shift % 26
+
+    caesar(start_text=text, shift_amount=shift, chiper_derection=direction)
+
+    restart = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n")
+    if restart == "no":
+        should_end = True
+        print("Goodbye")
+
+        
